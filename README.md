@@ -30,3 +30,10 @@ sudo iptables -t nat -D POSTROUTING -o wg1 -p tcp --dport 80 -d x.y.z.100 -j SNA
 sudo iptables -L
 sudo iptables -t nat -L
 ```
+
+### save
+```
+sudo apt install netfilter-persistent
+sudo netfilter-persistent save
+sudo systemctl enable netfilter-persistent
+```
