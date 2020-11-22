@@ -1,5 +1,11 @@
 # forward2wireguard
 
+### enable forwarding
+```
+sysctl -w net.ipv4.ip_forward=1
+sysctl -w net.ipv6.conf.all.forwarding=1
+```
+
 ### default
 ```
 sudo iptables -P FORWARD DROP
@@ -31,9 +37,13 @@ sudo iptables -L
 sudo iptables -t nat -L
 ```
 
-### save
+### wireguard
 ```
-sudo apt install netfilter-persistent
-sudo netfilter-persistent save
-sudo systemctl enable netfilter-persistent
+[Interface]
+...
+PostUp = /etc/wireguard/helper/add-nat-routing.sh
+PostDown = /etc/wireguard/helper/remove-nat-routing.sh
+
+[Peer]
+...
 ```
