@@ -46,4 +46,6 @@ PostDown = /etc/wireguard/helper/remove-nat-routing.sh
 
 [Peer]
 ...
+
+$ chmod -v +x /etc/wireguard/helper/*.sh
 ```
